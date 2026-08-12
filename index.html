@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>제주도 여행 소개</title>
+<style>
+  :root {
+    --sea: #0a9396;
+    --deep-sea: #005f73;
+    --sand: #fefae0;
+    --sunset: #ee9b00;
+    --text-dark: #1b1b1b;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', 'Malgun Gothic', sans-serif;
+    background: var(--sand);
+    color: var(--text-dark);
+  }
+
+  header {
+    background: linear-gradient(135deg, var(--deep-sea), var(--sea));
+    color: white;
+    text-align: center;
+    padding: 80px 20px 60px;
+  }
+
+  header h1 {
+    font-size: 3rem;
+    margin: 0 0 10px;
+    letter-spacing: 2px;
+  }
+
+  header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin: 0;
+  }
+
+  main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 50px 20px;
+  }
+
+  section h2 {
+    font-size: 1.8rem;
+    border-left: 6px solid var(--sunset);
+    padding-left: 12px;
+    margin-bottom: 20px;
+  }
+
+  .intro {
+    line-height: 1.8;
+    font-size: 1.05rem;
+    margin-bottom: 60px;
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+  }
+
+  .card {
+    background: transparent;
+    height: 220px;
+    perspective: 1000px;
+    cursor: pointer;
+  }
+
+  .card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.7s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border-radius: 14px;
+  }
+
+  .card.flipped .card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+  }
+
+  .card-front {
+    background: white;
+  }
+
+  .card-front .emoji {
+    font-size: 2.6rem;
+    margin-bottom: 10px;
+  }
+
+  .card-front h3 {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+
+  .card-front span {
+    margin-top: 8px;
+    font-size: 0.85rem;
+    color: #777;
+  }
+
+  .card-back {
+    background: var(--sea);
+    color: white;
+    transform: rotateY(180deg);
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  footer {
+    text-align: center;
+    padding: 30px;
+    background: var(--deep-sea);
+    color: white;
+    font-size: 0.9rem;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🌊 제주도</h1>
+  <p>바람과 돌, 그리고 여자가 많다는 삼다의 섬</p>
+</header>
+
+<main>
+  <section class="intro">
+    <h2>제주도 소개</h2>
+    <p>
+      제주도는 대한민국 최남단에 위치한 화산섬으로, 한라산을 중심으로 독특한 자연경관을 자랑합니다.
+      유네스코 세계자연유산으로 등재된 제주는 사계절 내내 아름다운 풍경과 다양한 즐길 거리를 제공하는
+      대한민국 대표 관광지입니다. 아래 카드를 클릭하면 각 명소에 대한 설명을 확인할 수 있어요.
+    </p>
+  </section>
+
+  <section>
+    <h2>주요 명소</h2>
+    <div class="card-grid" id="cardGrid">
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="emoji">🗻</div>
+            <h3>한라산</h3>
+            <span>클릭해서 자세히 보기</span>
+          </div>
+          <div class="card-back">
+            대한민국에서 가장 높은 산(1,947m)으로, 정상에는 백록담이라는 화산 분화구 호수가 있습니다.
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="emoji">🌅</div>
+            <h3>성산일출봉</h3>
+            <span>클릭해서 자세히 보기</span>
+          </div>
+          <div class="card-back">
+            바다에서 솟아오른 거대한 응회구로, 일출 명소로 유명한 유네스코 세계자연유산입니다.
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="emoji">🕳️</div>
+            <h3>만장굴</h3>
+            <span>클릭해서 자세히 보기</span>
+          </div>
+          <div class="card-back">
+            세계에서 가장 긴 용암동굴 중 하나로, 신비로운 지하 세계를 탐험할 수 있습니다.
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="emoji">🏖️</div>
+            <h3>협재해수욕장</h3>
+            <span>클릭해서 자세히 보기</span>
+          </div>
+          <div class="card-back">
+            에메랄드빛 바다와 하얀 모래사장이 어우러진 제주 서쪽의 대표 해변입니다.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>Made for GitHub Pages 실습 · 제주도 소개 페이지</p>
+</footer>
+
+<script>
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', () => {
+      card.classList.toggle('flipped');
+    });
+  });
+</script>
+
+</body>
+</html>
